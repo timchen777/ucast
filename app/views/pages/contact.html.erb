@@ -1,0 +1,18 @@
+<!--<h1>Contact us</h1>-->
+<!--<hr>-->
+<!--<p>NTU Ruby 277 class</p>-->
+Users:
+<% @alluser = User.all %>
+<% @alluser.each do |user| %>
+  <div class="title_class">
+   <h6><%= user.name %>
+   <small>( Created at: <%= user.created_at.strftime("%b %d. %Y") %></small>
+   <!--<!--%= session[:user_id] %> -->
+   <% if (session[:user_id] == user.id) %>
+     online
+   <% else %>
+     offline
+   <% end %>
+   </h6>
+  </div>
+<% end %>

@@ -1,0 +1,26 @@
+<h1>Home</h1>
+<hr>
+<% if logged_in? %>
+<h2>Post</h2>
+  id  title  content
+<% @posts.each do |post| %>
+  <p><%= post.id %><%=" : "%><%= post.title %><%=" : "%><%= post.content %></p>
+<% end %>
+<h2>Category</h2>
+  id  title  
+<% @categories.each do |category| %>
+  <p><%= category.id %><%=" : "%><%= category.title %></p>
+<% end %>
+<h2>Connection</h2>
+  id  category_id  post_id
+<% @connections.each do |connection| %>
+  <p><%= connection.id %><%=" : "%><%= connection.category_id %><%=" : "%><%= connection.post_id %></p>
+<% end %>
+<h2>Comment</h2>
+  id  content  post_id
+<% @comments.each do |comment| %>
+  <p><%= comment.id %><%=" : "%><%= comment.content %><%=" : "%><%= comment.post_id %></p>
+<% end %>
+
+<% end %>
+

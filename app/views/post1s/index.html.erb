@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<h4>Posts</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Content</th>
+      <th>Category</th>
+      <th>Author</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @post1s.each do |post1| %>
+      <!--<div class="title_class">  -->
+      <tr>
+        <td><%= post1.title %></td>
+        <td><%= post1.content %></td>
+        <td><%= Category.find_by_id(post1.category_id).title %></td>
+        <td><%= User.find_by_id(post1.user_id).name %></td>
+        <td><%= link_to 'Show', post1 , class: "btn btn-success" %></td>
+        <% if logged_in? %>        
+          <% if current_user.name == "admin" %>
+            <td><%= link_to 'Edit', edit_post1_path(post1), class: "btn btn-warning" %></td>
+            <td><%= link_to 'Destroy', post1, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+          <% end %>    
+        <% end %>    
+      </tr>
+      <!--</div>-->
+    <% end %>
+  </tbody>
+</table>
+<div>
+  <%= will_paginate %>
+</div>  
+<br>
+<% if logged_in? %>        
+  <% if current_user.name == "admin" %>
+    <%= link_to 'New Post', new_post1_path, class: "btn btn-success" %>
+  <% end %>
+<% end %>

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Comment Content:</strong>
+  <%= @comment.content %>
+</p>
+
+<%
+=begin %>
+<p>
+  <strong>Post:</strong>
+  <%= @comment.post_id %>
+</p>
+<%
+=end %>
+
+<p>
+  <strong>Post1:</strong>
+  <!--%= @comment.post1_id %-->
+  <%= Post1.find_by_id(@comment.post1_id).title %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <!--<%= @comment.user_id %>-->
+  <%= User.find_by_id(@comment.user_id).name %>
+</p>
+
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Back', comments_path %>

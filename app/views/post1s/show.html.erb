@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Post Title:</strong>
+  <%= @post1.title %>
+  <small>( Created at: <%= @post1.created_at.strftime("%b %d. %Y") %></small>
+  <small> ; category: <%= @post1.category.title %> )</small>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @post1.content %>
+</p>
+<%
+=begin%>
+<p>
+  <strong>Category:</strong>
+  <%= @post1.category_id %>
+</p>
+<p>
+  <strong>User:</strong>
+  <%= @post1.user_id %>
+</p>
+<%
+=end%>
+
+<!-----Tim Apply post to comment-->
+<!--% if logged_in? %-->
+<strong>Comments:</strong>
+  <% @pst1_comments.each do |comment| %>
+  <div class="title_class">
+    <p>
+       <%= User.find_by_id( comment.user_id).name %><%= ":" %><br>
+       <%= link_to comment.content, comment %>
+    </p>
+  </div>
+  <% end %>
+<!--<hr>-->
+<%= link_to 'New Comment', new_comment_path(@post1), class: "btn btn-success" %><br>
+<%= link_to 'Edit', edit_post1_path(@post1) %> |
+<%= link_to 'Back', post1s_path %>

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+
+<p>
+  <strong>Content:</strong>
+  <%= @post.content %>
+</p>
+
+<small>Created at: <%= @post.created_at.strftime("%b %d. %Y") %></small><br>
+<!--<small>category: <!--%= @post.connections %></small>-->
+
+<!-----Tim Apply post to comment-->
+<!--% if logged_in? %-->
+  <% @pst_comments.each do |comment| %>
+    <p><%= current_user.name %><%= ":" %><%= link_to comment.content, comment %></p>
+    <p>------------</p>
+  <% end %>
+<hr>
+<%= link_to 'New Comment', new_comment_path(@post), class: "btn btn-success" %><br>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

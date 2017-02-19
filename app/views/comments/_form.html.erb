@@ -1,0 +1,46 @@
+<%= form_for(@comment) do |f| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+      <% @comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </div>
+<%
+=begin%> 
+  <!--% binding.pry %-->
+  <%= @comment.post_id = @post.id %> 
+  <%= @comment.post1_id = @pst1.id %>
+  <%= @comment.user_id = @user.id %>
+  <div class="field">
+    <%= f.label :post_id %><br>
+    <%= f.number_field :post_id %>
+  </div>
+<%
+=end%>  
+  <div class="field">
+    <!--%= f.label :post1_id %><br-->
+    <!--%= f.number_field :post1_id %-->
+    <%= f.label :post %><br>
+    <%= f.select :post1_id, Post1.all.collect{ |x| [x.title, x.id]}, {:include_blank=>"Select One"} %><br />
+    
+  </div>
+  <div class="field">
+    <!--%= f.label :user_id %><br>-->
+    <!--%= f.number_field :user_id %>-->
+    <%= f.label :user %><br>
+    <%= f.select :user_id, User.all.collect{ |x| [x.name, x.id]}, {:include_blank=>"Select One"} %><br />
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
