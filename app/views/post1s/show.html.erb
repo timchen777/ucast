@@ -59,14 +59,18 @@
       <div class="field">
         <!--%= f.label :post1_id %><br-->
         <!--%= f.number_field :post1_id %-->
-        <%= f.label :post %><br>
-        <%= f.select :post1_id, Post1.all.collect{ |x| [x.title, x.id]}, {:include_blank=>"Select One"} %><br />
+        <!--%= f.label :post %><br-->
+        <!--%= f.select :post1_id, Post1.all.collect{ |x| [x.title, x.id]}, {:include_blank=>"Select One"} %><br /-->
+        <!--%= f.number_field :post1_id, @post1.id %><br/-->
+        <%= f.hidden_field :post1_id, value: @post1.id %>
       </div>
       <div class="field">
         <!--%= f.label :user_id %><br>-->
         <!--%= f.number_field :user_id %>-->
-        <%= f.label :user %><br>
-        <%= f.select :user_id, User.all.collect{ |x| [x.name, x.id]}, {:include_blank=>"Select One"} %><br />
+        <!--%= f.label :user %><br-->
+        <!--%= f.select :user_id, User.all.collect{ |x| [x.name, x.id]}, {:include_blank=>"Select One"} %><br /-->
+        <!--%= f.number_field :user_id,current_user.id %><br /-->
+        <%= f.hidden_field :user_id, value: current_user.id %>
       </div>
   <!------------------- debug --------------------->
       <%= f.text_area :content, rows: 4, class: 'col-md-10' %>
