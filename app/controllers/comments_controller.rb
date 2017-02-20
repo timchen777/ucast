@@ -35,6 +35,15 @@ class CommentsController < ApplicationController
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
+    
+    # if @comment.save
+      # render 'post1s/show'
+    # end
+    # if @comment.save
+      # redirect_to post1_path(@post1)
+    # else
+      # render 'post1s/show'
+    # end    
   end
 
   # PATCH/PUT /comments/1

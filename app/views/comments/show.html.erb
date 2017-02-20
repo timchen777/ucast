@@ -34,5 +34,9 @@ post id,title:
 </p>
 <%
 =end %>
+<!--%= render 'post1s/show' %-->
+<!--% redirect_to post1_path(:id => @comment.post1_id) %--> 
+<!--<%= link_to 'Post1s', post1s_path(@post1) %> |-->
+<%= link_to 'Post1', post1_path(@comment.post1_id) %> |
 <%= link_to 'Edit', edit_comment_path(@comment) %> |
 <%= link_to 'Back', comments_path %>
