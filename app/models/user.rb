@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
    has_secure_password validation: false
    has_many :post1s   
-   has_many :comments   
+   has_many :comments  
+   has_one :status
 end
