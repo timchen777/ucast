@@ -27,14 +27,33 @@
 <!-----Tim Apply post to comment-->
 <!--% if logged_in? %-->
 <strong>Comments:</strong>
-  <% @pst1_comments.each do |comment| %>
-  <div class="title_class">
+<% @pst1_comments.each do |comment| %>
+  <!--<div class="row">-->
+    <!--<div class='col-md-1 well text-center'>-->
+    <div class="title_class">
+      <% if logged_in? %>
+        <%= link_to vote_post1_comment_path(@post1, comment, vote: true), class: "btn btn-primary", method: 'post' do %>
+          讚
+        <% end %>
+      <%end %>
+      <br/>
+      <%= comment.total_votes %> 票
+      <br/>
+      <% if logged_in? %>
+          <%= link_to vote_post1_comment_path(@post1, comment, vote: false), class: "btn btn-danger", method: 'post' do %>
+            噁
+          <% end %>
+      <% end %>
+    </div>
+    <!--<div class="col-md-6 well">  -->
+    <div class="title_class">
     <p>
        <%= User.find_by_id( comment.user_id).name %><%= ":" %><br>
        <%= link_to comment.content, comment %>
     </p>
-  </div>
-  <% end %>
+    </div>  
+  <!--</div>-->
+<% end %>
   <!--%= @comment.post_id = @post.id %--> 
   <!--% @comment.post1_id = @post1.id %-->
   <!--% @comment.user_id = @user.id %-->
@@ -52,6 +71,7 @@
 
   <h4>請留言:</h4>
   <!--%= form_for [@post1, @pst1_comments] do |f| %-->
+  <!--%= form_for [@post1,@comment] do |f| %>-->
   <%= form_for [@comment] do |f| %>
   <!--%= form_for [@post1, @pst1_comments] do |f| %>-->
     <div class="row">

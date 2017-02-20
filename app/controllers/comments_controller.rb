@@ -70,6 +70,14 @@ class CommentsController < ApplicationController
     end
   end
 
+  def vote
+    @post1 = Post1.find(params[:post1_id])
+    comment= Comment.find(params[:id])
+    @vote = Vote.create(voteable: comment, creator: current_user, vote: params[:vote])
+
+    redirect_to post1_path(@post1)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_comment

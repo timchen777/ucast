@@ -5,6 +5,9 @@
 <table>
   <thead>
     <tr>
+      <th>票數</th>
+      <th>讚</th>
+      <th>噁</th>      
       <th>Title</th>
       <th>Content</th>
       <th>Category</th>
@@ -17,6 +20,17 @@
     <% @post1s.each do |post1| %>
       <!--<div class="title_class">  -->
       <tr>
+        <td><%= post1.total_votes %></td>
+        <td>
+          <%= link_to vote_post1_path(post1, vote: true), class: "btn btn-primary", method: 'post' do %>
+          讚
+          <% end %>
+        </td>
+        <td>
+          <%= link_to vote_post1_path(post1, vote: false), class: "btn btn-danger", method: 'post' do %>
+          噁
+          <% end %>
+        </td>        
         <td><%= post1.title %></td>
         <td><%= post1.content %></td>
         <td><%= Category.find_by_id(post1.category_id).title %></td>

@@ -1,7 +1,19 @@
 Rails.application.routes.draw do
   
-  resources :comments
-  resources :post1s
+  resources :post1s do
+    member do # 客製化連結
+      post :vote
+      # 這樣會產出 post1s/1/vote
+    end
+    # 嵌套/巢狀路由，這樣可以產生出 post1s/1/comments/ 的 url    
+    resources :comments, only: [:create] do
+      member do
+        post :vote
+        # 產出 post1s/1/comments/1/vote
+      end
+    end
+  end
+  
   # get 'pages/contact'
   get "contact", to: "pages#contact"
   get "error", to: "pages#error"

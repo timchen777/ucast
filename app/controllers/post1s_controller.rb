@@ -67,6 +67,12 @@ class Post1sController < ApplicationController
     end
   end
 
+  def vote
+    @post1 = Post1.find(params[:id])
+    @vote = Vote.create(voteable: @post1, creator: current_user, vote: params[:vote])
+    redirect_to root_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post1
