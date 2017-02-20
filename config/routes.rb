@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   get "ref15", to: redirect("https://www.skillshare.com/home")
   get "ref16", to: redirect("https://www.codecademy.com/learn/all")
   get "ref17", to: redirect("https://www.freecodecamp.com/")
+  get "ref1000", to: redirect("https://www.lynda.com/")  
   get "ref101", to: redirect("https://www.python.org/")            
   get "ref102", to: redirect("https://simpleprogrammer.com/2017/02/15/get-started-learning-python/")            
   get "ref103", to: redirect("https://realpython.com/")            
