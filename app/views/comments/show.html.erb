@@ -13,18 +13,26 @@
 </p>
 <%
 =end %>
-
+<!-------------- debug --------------->
+post id,title:
+  <%= @comment.post1_id %>
+  <%= Post1.find_by_id(@comment.post1_id).title %>
+, user id, name:  
+  <%= @comment.user_id %>
+  <%= User.find_by_id(@comment.user_id).name  %><br>
+<!-------------- debug --------------->
+<%
+=begin %>
 <p>
   <strong>Post1:</strong>
-  <!--%= @comment.post1_id %-->
   <%= Post1.find_by_id(@comment.post1_id).title %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <!--<%= @comment.user_id %>-->
   <%= User.find_by_id(@comment.user_id).name %>
 </p>
-
+<%
+=end %>
 <%= link_to 'Edit', edit_comment_path(@comment) %> |
 <%= link_to 'Back', comments_path %>

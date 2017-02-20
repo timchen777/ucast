@@ -14,11 +14,13 @@ class Post1sController < ApplicationController
         #------ Tim: add following 3 lines to apply posts to comments
     @pst1 = Post1.find(params[:id])
     @pst1_comments= @pst1.comments  
+    @comment = Comment.new
   end
 
   # GET /post1s/new
   def new
     @post1 = Post1.new
+    # @comment = Comment.new
   end
 
   # GET /post1s/1/edit

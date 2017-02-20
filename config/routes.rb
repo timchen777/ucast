@@ -58,7 +58,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
   
-  get "*path", to: redirect("/error")
+  # remove following line,for /rails/info/routes
+  # get "*path", to: redirect("/error")
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
