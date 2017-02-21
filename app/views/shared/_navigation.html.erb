@@ -27,7 +27,7 @@
 <% end %>
       </ul>
      <% if logged_in? %>   
-     <% if current_user.name == "admin" %>
+     <% if (current_user.name == "admin") %>
       <form class="navbar-form navbar-left">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
@@ -43,6 +43,9 @@
             <li><%= link_to  "http://railscasts.com", ref1_path %></li>
             <li><%= link_to  "https://gorails.com", ref2_path %></li>
             <li><%= link_to  "https://railstutorial.org", ref3_path %></li>
+            <li><%= link_to  "Ruby on Rails Tutorial full sample lesson(Rails 5)-YouTube",ref1001_path %></li>
+            <li><%= link_to  "Ruby on Rails 5: Essential Training-YouTube(100 videos)",ref1002_path %></li>
+            <li><%= link_to  "Learn Ruby on Rails from Scratch-Youtube(38v ideos)", ref1003_path %></li>
             <li><%= link_to  "http://railsforzombies.org", ref4_path %></li>
             <li><%= link_to  "https://thoughtbot.com/upcase/rails", ref5_path %></li>
             <li><%= link_to  "http://guides.rubyonrails.org/", ref6_path %></li>

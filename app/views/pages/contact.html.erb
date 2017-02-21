@@ -3,12 +3,18 @@
 <!--<p>NTU Ruby 277 class</p>-->
 Users:
 <% @alluser = User.all %>
+<!--------- debug ----------------->
+<!--user name:-->
+<!--%= User.find_by_id(user.id).name %>-->
+<!--user vote_count:-->
+<!--%= User.find_by_id(user.id).status.vote_count %>-->
+<!--------- debug ----------------->
+
 <% @alluser.each do |user| %>
   <div class="title_class">
    <h6><%= user.name %>
    <small>( Created at: <%= user.created_at.strftime("%b %d. %Y") %></small>
-   <!--<!--%= session[:user_id] %> -->
-   <% if (session[:user_id] == user.id) %>
+   <% if (Status.find_by_user_id(user.id).online == true) %>
      online
    <% else %>
      offline

@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20170220142127) do
   create_table "statuses", force: :cascade do |t|
     t.boolean "online"
     t.integer "vote_count"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -62,14 +63,6 @@ ActiveRecord::Schema.define(version: 20170220142127) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "password_digest"
-  end
-
-  create_table "voteps", force: :cascade do |t|
-    t.boolean  "vote"
-    t.integer  "user_id"
-    t.integer  "post1_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "votes", force: :cascade do |t|
