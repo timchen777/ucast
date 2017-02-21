@@ -1,7 +1,7 @@
 <!--<h1>Contact us</h1>-->
 <!--<hr>-->
 <!--<p>NTU Ruby 277 class</p>-->
-Users:
+
 <% @alluser = User.all %>
 <!--------- debug ----------------->
 <!--user name:-->
@@ -9,16 +9,28 @@ Users:
 <!--user vote_count:-->
 <!--%= User.find_by_id(user.id).status.vote_count %>-->
 <!--------- debug ----------------->
-
-<% @alluser.each do |user| %>
+<table>
+  <thead>
+    <tr>
+      <th>Users</th>
+      <th>Since</th>
+      <th>Online</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
   <div class="title_class">
-   <h6><%= user.name %>
-   <small>( Created at: <%= user.created_at.strftime("%b %d. %Y") %></small>
-   <% if (Status.find_by_user_id(user.id).online == true) %>
-     online
+  <tbody>
+<% @alluser.each do |user| %>
+  <tr>
+   <td><h6><%= user.name %></td>
+   <td><small><%= user.created_at.strftime("%b %d. %Y") %></small></td>
+   <td><% if (Status.find_by_user_id(user.id).online == true) %>
+     Yes
    <% else %>
-     offline
-   <% end %>
-   </h6>
-  </div>
-<% end %>
+     No
+   <% end %></td>
+   </tr>
+  <% end %>
+ </tbody>
+</table>
+</div>
