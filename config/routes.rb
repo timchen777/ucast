@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
-  
+  resources :articles, only: [:index, :new, :create, :destroy]
+  # root "articles#index"  
+    
+  get 'articles/index'
+
+  get 'articles/new'
+
+  get 'articles/create'
+
+  get 'articles/destroy'
+
+  resources :statuses
   resources :post1s do
     member do # 客製化連結
       post :vote
@@ -24,7 +35,8 @@ Rails.application.routes.draw do
   get "ref1001", to: redirect("https://www.youtube.com/watch?v=N-4NuoivKu0")
   get "ref1002", to: redirect("https://www.youtube.com/watch?v=cvYVpMK_Vv4&list=PLskZP4iE0Xzb7tp95ruIxJnXW12lOzeLh&index=1")
   get "ref1003", to: redirect("https://www.youtube.com/watch?v=exEduZlJS7Q&list=PLDmvslp_VR0xlwr5lAx2PDsZLu7oIOhpX")
-  get "ref4", to: redirect("http://railsforzombies.org")
+  get "ref1004", to: redirect("https://www.tutorialspoint.com/ruby-on-rails/rails-file-uploading.htm")
+  get "ref4",to: redirect("http://railsforzombies.org")
   get "ref5", to: redirect("https://thoughtbot.com/upcase/rails")
   get "ref6", to: redirect("http://guides.rubyonrails.org/")
   get "ref7", to: redirect("http://learn-rails.com/")
@@ -66,6 +78,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :posts
   resources :users, only: [:new, :create]
+  resources :statuses
   
   # get 'pages/home'
   root 'pages#home'

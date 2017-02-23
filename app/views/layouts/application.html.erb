@@ -7,12 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= render "shared/nav" %>
-<%= render "shared/navigation" %>
+  <%= render "shared/nav" %>
+  <%= render "shared/navigation" %>
 <!--<div class="logoImg"></div>-->
 <!--<%= image_tag("logos/logo.png",width: '150px') %>-->
 <!--</div>-->
-<%= yield %>
-
+  <div class = "container" style = "padding-top:20px;">    
+    <%= yield %>
+  </div>
 </body>
 </html>

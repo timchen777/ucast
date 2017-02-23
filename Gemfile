@@ -12,6 +12,9 @@ gem 'bootstrap-will_paginate', '0.0.10'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # gem 'pg'
+
+# file uploader
+gem 'carrierwave', '~> 0.9'
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '~> 5.0'
@@ -39,6 +42,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
