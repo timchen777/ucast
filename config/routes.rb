@@ -84,6 +84,7 @@ Rails.application.routes.draw do
   resources :posts
   resources :users, only: [:new, :create]
   resources :statuses
+  resources :searches
   
   # get 'pages/home'
   root 'pages#home'

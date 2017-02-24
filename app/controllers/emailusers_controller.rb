@@ -28,13 +28,8 @@ class EmailusersController < ApplicationController
 
     respond_to do |format|
       if @emailuser.save
-        # Tell the UserMailer to send a welcome email after save
-        Usermailer.welcome_email(@user).deliver_later        
-        
         format.html { redirect_to @emailuser, notice: 'Emailuser was successfully created.' }
         format.json { render :show, status: :created, location: @emailuser }
-        # Usermailer.signup_confirmation(@user).deliver
-        # redirect_to @user, notice: "Signed up successfully."
       else
         format.html { render :new }
         format.json { render json: @emailuser.errors, status: :unprocessable_entity }
