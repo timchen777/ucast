@@ -7,17 +7,18 @@
 <%= form_tag post1s_path, method: :get do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
-    <%= button_tag "Search", name: nil %>
+    <%= button_tag "Search Title", name: nil %>
   </p>
 <% end %>
 <!--<p><!--%= link_to "Advanced Search", new_search_path %></p>-->
-<table>
+<table class="pretty">
   <thead>
     <tr>
-      <th>票數</th>
-      <th>讚</th>
-      <th>噁</th>      
-      <th>Title</th>
+      <!--<th><!--%= sortable "total_votes" %></th>-->
+      <th>Vote</th>
+      <th>Like</th>
+      <th>Dislike</th>      
+      <th><%= sortable "title" %></th>
       <th>File</th>
       <th>Content</th>
       <th>Category</th>
@@ -35,12 +36,12 @@
         <td><%= post1.total_votes %></td>
         <td>
           <%= link_to vote_post1_path(post1, vote: true), class: "btn btn-primary", method: 'post' do %>
-          讚
+          O
           <% end %>
         </td>
         <td>
           <%= link_to vote_post1_path(post1, vote: false), class: "btn btn-danger", method: 'post' do %>
-          噁
+          X
           <% end %>
         </td>        
         <td><%= post1.title %></td>
@@ -65,7 +66,7 @@
   </tbody>
 </table>
 <div>
-  <!--%= will_paginate %>-->
+  <%= will_paginate %>
 </div>
 <br>
 <% if logged_in? %>        

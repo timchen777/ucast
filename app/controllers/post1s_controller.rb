@@ -6,7 +6,9 @@ class Post1sController < ApplicationController
   def index
     #@post1s = Post1.all
     @post1s = Post1.search(params[:search])  
-    # @post1s = Post1.paginate(page: params[:page], per_page: 4)    
+    @post1s = @post1s.order(params[:sort] )  
+    #@post1s = @post1s.order(params[:sort] + " " + params[:direction]) 
+    @post1s = @post1s.paginate(page: params[:page], per_page: 4)    
   end
 
   # GET /post1s/1
