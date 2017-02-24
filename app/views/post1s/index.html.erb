@@ -37,7 +37,11 @@
           <% end %>
         </td>        
         <td><%= post1.title %></td>
-        <td><%= image_tag(img_arr[img_idx],width:'120px',length:'120px') %></td>
+        <% if (post1.title=="MISC") %>
+          <td><%= video_tag "logos/movie.mp4", :size => "120x120", :controls => true %></td>
+        <% else %>    
+          <td><%= image_tag(img_arr[img_idx],width:'120px',length:'120px') %></td>
+        <% end %>  
         <td><%= post1.content %></td>
         <td><%= Category.find_by_id(post1.category_id).title %></td>
         <td><%= User.find_by_id(post1.user_id).name %></td>

@@ -14,7 +14,7 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -38,4 +38,30 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  
+  # send eMail
+  # It tells ActionMailer that you want to use the SMTP server. You can also set it to be 
+  # :sendmail if you are using a Unix-based operating system such as Mac OS X or Linux
+  config.action_mailer.delivery_method = :smtp  
+  #config.action_mailer.delivery_method = :sendmail 
+  
+  # Replace each hash value with proper settings for your Simple Mail Transfer Protocol (SMTP)
+  # server. You can take this information from your Internet Service Provider if you already 
+  # don't know. You don't need to change port number 25 and authentication type if you are 
+  # using a standard SMTP server.  
+  config.action_mailer.smtp_settings = {
+  #config.action_mailer.sendmail_settings = {
+   address:              'smtp.gmail.com',
+   port:                 587,
+   domain:               'example.com',
+   user_name:            '<username>',
+   password:             '<password>',
+   authentication:       'plain',
+   enable_starttls_auto: true  
+}
+
+# ActionMailer::Base.default_content_type could be set to 
+# "text/plain", "text/html", and "text/enriched". The default value is "text/plain".
+# ??? ActionMailer::Base.default_content_type = "text/html"
+# ??? ApplicationMailer.default_content_type = "text/html"
 end

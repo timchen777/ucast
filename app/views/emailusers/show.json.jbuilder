@@ -1,0 +1,1 @@
+json.partial! "emailusers/emailuser", emailuser: @emailuser

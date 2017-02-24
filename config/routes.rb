@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :emailusers
   resources :articles, only: [:index, :new, :create, :destroy]
   # root "articles#index"  
     
@@ -36,6 +37,10 @@ Rails.application.routes.draw do
   get "ref1002", to: redirect("https://www.youtube.com/watch?v=cvYVpMK_Vv4&list=PLskZP4iE0Xzb7tp95ruIxJnXW12lOzeLh&index=1")
   get "ref1003", to: redirect("https://www.youtube.com/watch?v=exEduZlJS7Q&list=PLDmvslp_VR0xlwr5lAx2PDsZLu7oIOhpX")
   get "ref1004", to: redirect("https://www.tutorialspoint.com/ruby-on-rails/rails-file-uploading.htm")
+  get "ref1005", to: redirect("http://guides.rubyonrails.org/action_mailer_basics.html")
+  get "ref1006", to: redirect("http://api.rubyonrails.org/")
+  get "ref1007", to: redirect("https://github.com/rails/rails/blob/master/actionmailer/lib/action_mailer/base.rb")
+  get "ref1008", to: redirect("https://sendgrid.com/docs/Integrate/Frameworks/rubyonrails.html")
   get "ref4",to: redirect("http://railsforzombies.org")
   get "ref5", to: redirect("https://thoughtbot.com/upcase/rails")
   get "ref6", to: redirect("http://guides.rubyonrails.org/")
