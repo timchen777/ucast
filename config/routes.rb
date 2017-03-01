@@ -41,6 +41,13 @@ Rails.application.routes.draw do
   get "ref1006", to: redirect("http://api.rubyonrails.org/")
   get "ref1007", to: redirect("https://github.com/rails/rails/blob/master/actionmailer/lib/action_mailer/base.rb")
   get "ref1008", to: redirect("https://sendgrid.com/docs/Integrate/Frameworks/rubyonrails.html")
+  get "ref1009", to: redirect("https://www.udemy.com/draft/537712/learn/v4/t/lecture/3153934?start=105")
+  get "ref1010", to: redirect("https://wistia.com/doc/embed-links")
+  get "ref1011", to: redirect("https://www.producthunt.com/posts/code4startup")
+  get "ref1012", to: redirect("https://github.com/leotrieu/Code4Startup.Ninja")
+  get "ref1013", to: redirect("https://code4startup.com/subscriptions")
+  get "ref1014", to: redirect("https://code4startup.com/projects/uber-app-for-food-with-python-django-and-swift?code=SPECIAL")
+
   get "ref4",to: redirect("http://railsforzombies.org")
   get "ref5", to: redirect("https://thoughtbot.com/upcase/rails")
   get "ref6", to: redirect("http://guides.rubyonrails.org/")
