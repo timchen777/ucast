@@ -24,7 +24,8 @@
   <tr>
    <td><h6><%= user.name %></td>
    <td><small><%= user.created_at.strftime("%b %d. %Y") %></small></td>
-   <td><% if (Status.find_by_user_id(user.id).online == true) %>
+   <!--<td><!--% if (Status.find_by_user_id(user.id).online == true) %>-->
+   <td><% if (1) %> temp!! TBD
      Yes
    <% else %>
      No

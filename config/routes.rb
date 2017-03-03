@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  
+  get 'auth/:provider/callback', to: 'fbsessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'fbsessions#destroy', as: 'signout'
+  resources :fbsessions, only: [:create, :destroy]
+  resource :fbhome, only: [:show]
+  # root to: "fbhome#show"
+  get 'fbsessions/create'
+  get 'fbsessions/destroy'
+  get 'fbhome/show'
+
+  resources :videos
   resources :emailusers
   resources :articles, only: [:index, :new, :create, :destroy]
   # root "articles#index"  
@@ -47,6 +59,8 @@ Rails.application.routes.draw do
   get "ref1012", to: redirect("https://github.com/leotrieu/Code4Startup.Ninja")
   get "ref1013", to: redirect("https://code4startup.com/subscriptions")
   get "ref1014", to: redirect("https://code4startup.com/projects/uber-app-for-food-with-python-django-and-swift?code=SPECIAL")
+  get "ref1015", to: redirect("https://richonrails.com/articles/facebook-authentication-in-ruby-on-rails")
+  get "ref1016", to: redirect("https://github.com/mkdynamic/omniauth-facebook")
 
   get "ref4",to: redirect("http://railsforzombies.org")
   get "ref5", to: redirect("https://thoughtbot.com/upcase/rails")

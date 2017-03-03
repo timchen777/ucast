@@ -5,8 +5,26 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  
+  <!-- Compiled and minified CSS -->
+  <!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">-->
+  <!-- Compiled and minified JavaScript -->
+  <!--script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>  -->
+  <!--link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  -->
+  
 </head>
 <body>
+  <div>
+    <!--% if current_user %>-->
+      <!--Signed in as <strong><!--%= current_user.name %></strong>!-->
+    <% if current_fbuser %>-
+      Signed in as <strong><%= current_fbuser.name %></strong>
+      <%= link_to "Sign out", signout_path, id: "sign_out" %>
+    <% else %>
+      <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+    <% end %>
+  </div>  
+  
   <%= render "shared/nav" %>
   <%= render "shared/navigation" %>
 <!--<div class="logoImg"></div>-->

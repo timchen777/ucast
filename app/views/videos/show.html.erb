@@ -1,0 +1,44 @@
+<!--<p id="notice"><!--%= notice %></p>-->
+<div class="container-fluid">
+<div class="row">
+  <div class="col-sm-1">
+     <div class="collection">
+       <% @videos.each do |video| %>
+         <%= link_to video.title, video, :class => "collection-item" %></br>
+       <% end %>
+      </div>
+  </div>
+  <div class="col-sm-11">
+  <div class="box">
+    <div class="card blue-grey darken-1">
+      <div class="card-image">
+        <div class="wistia_embed wistia_async_<%= @video.wistia %>" style="height:320px;width:420px">&nbsp;</div>
+        </div>
+      </div>
+      <div class="card-content white-text">
+        <span class="card-title"><%= @video.title %></span>
+          <p><%= @video.description %></p>
+      </div>
+      <div class="card-action">
+        <%= link_to "Previous", @prev_video if !@prev_video.nil? %>
+        <span class="right">
+          <%= link_to "Next", @next_video if !@next_video.nil? %>
+        </span>
+      </div>
+    </div>    
+  </div>
+  </div>
+</div>
+</div>
+
+<!--<script src="http://fast.wistia.net/static/E-v1.js"></script>-->
+<script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js" async></script>
+<script>
+  wistiaEmbed = Wistia.embed("<%= @video.wistia %>", {
+    // playerColor: "ff0000",
+    // fullscreenButton: false,
+    // container: "wistia_abcde12345"
+    videoQuality: "hd-only",
+    videoFoam: true
+  });
+</script>

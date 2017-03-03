@@ -55,10 +55,10 @@
         <td><%= User.find_by_id(post1.user_id).name %></td>
         <td><%= link_to 'Show', post1 , class: "btn btn-success" %></td>
         <% if logged_in? %>        
-          <% if current_user.name == "admin" %>
+          <!--% if current_user.name == "admin" %>-->
             <td><%= link_to 'Edit', edit_post1_path(post1), class: "btn btn-warning" %></td>
             <td><%= link_to 'Destroy', post1, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
-          <% end %>    
+          <!--% end %>    -->
         <% end %>    
       </tr>
       <!--</div>-->
@@ -70,7 +70,7 @@
 </div>
 <br>
 <% if logged_in? %>        
-  <% if current_user.name == "admin" %>
+  <!--% if current_user.name == "admin" %-->
     <%= link_to 'New Post', new_post1_path, class: "btn btn-success" %>
-  <% end %>
+  <!--% end %-->
 <% end %>

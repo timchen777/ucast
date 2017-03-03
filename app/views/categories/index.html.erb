@@ -17,10 +17,10 @@
         <td><%= category.title %></td>
         <td><%= link_to 'Show', category,class: "btn btn-success" %></td>
         <% if logged_in? %>
-          <% if current_user.name == "admin" %>
+          <!--% if current_user.name == "admin" %-->
             <td><%= link_to 'Edit', edit_category_path(category), class: "btn btn-warning" %></td>
             <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
-          <% end %>  
+          <!--% end %-->  
         <% end %>  
       </tr>
     <% end %>
@@ -32,9 +32,9 @@
 </div>  
 <hr>
 <% if logged_in? %>
-  <% if current_user.name == "admin" %>
+  <!--% if current_user.name == "admin" %-->
     <%= link_to 'New Category', new_category_path, class: "btn btn-success" %>
-  <% end %>
+  <!--% end %-->
 <% end %>
 
 <% end %>

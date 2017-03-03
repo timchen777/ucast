@@ -1,4 +1,70 @@
-<h4>About us</h4>
-<hr>
-<p><%= @title %></p>
-<%= video_tag "logos/movie.mp4", :size => "320x240", :controls => true %>
+<!--<!--%= video_tag "logos/movie.mp4", :size => "320x240", :controls => true %>-->
+<h4>About Me</h4>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6">
+            <a class="twitter-timeline"  href="https://twitter.com/search?q=ruby%20on%20rails" data-widget-id="836212127530541056">Tweets about ruby on rails</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        </div>
+        <div class="col-sm-6" style="color:#0000FF">
+
+<div class="row">
+
+            <%= image_tag "timchen.jpg", class:"img-circle" %>
+            <br>Tim chen following Ruby on Rails
+</div>  
+
+<div class="row">
+<!--<h4>Contact</h4>-->
+<head>
+    <meta charset="UTF-8">
+    <!--<title>GeoLocation</title>-->
+<script>
+//http://http://localhost:8080/indexGeo1.html  if has KEY
+// just put in local, not server, and double click indexGeo1.html file if do not have KEY     
+//window.onload=function() {  
+//===== STEP2: init() called after google map loaded successfully ============    
+function init() {    
+  window.navigator.geolocation.getCurrentPosition(function(response) { //get user's geo location
+      var map=new google.maps.Map(document.getElementById("map"),{
+          zoom:8,
+          center:{
+              lat:response.coords.latitude, 
+              lng:response.coords.longitude}
+      });
+//      console.log(response);
+  //add marker
+  new google.maps.Marker ({
+      map:map,
+      position: {
+          lat:response.coords.latitude, 
+          lng:response.coords.longitude
+      }
+  })
+  }, function(response){
+      console.log(response);
+  });
+};
+</script>  
+<script src="https://maps.googleapis.com/maps/api/js?&callback=init" async defer>
+// <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=init" async defer>
+// google "google map javascript api"   
+//著手採用使用者喜歡的地圖    
+//https://developers.google.com/maps/documentation/javascript/?hl=zh-tw    
+//simple map: https://developers.google.com/maps/documentation/javascript/examples/map-simple?hl=zh-tw 
+//   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
+//        async defer>
+//=============== STEP1: load googlemap ===================    
+</script> 
+</head>
+<body>
+  <div class="card z-depth-3">
+    <class="card-content">
+        <p>Your location:</p>
+    </class>
+  </div>
+  <div id="map" style="width:580px; height:380px;"></div>
+</body>
+</div>
+</div>
+</div>
